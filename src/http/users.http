@@ -1,0 +1,63 @@
+# baseURL
+@baseURL = http://localhost:3001
+
+###
+# Find All Users
+GET {{ baseURL }}/users
+
+###
+# Find User By Id
+GET {{ baseURL }}/users/0
+
+###
+# Create User
+POST {{ baseURL }}/users
+Content-Type: application/json
+
+{
+  email: "string;",
+  accesstoken: "string;",
+  age: 0,
+  createdat: "string;",
+  createdtime: "string;",
+  lastloginat: "string;",
+  lastsignintime: "string;",
+  name: "string;",
+  off_set: "string;",
+  timezone: "string;",
+  userindex: 0,
+  wallet: "string;",
+  description: "string;",
+  iskickoff: boolean;
+  ispaid: boolean;
+  userid: 0
+}
+
+
+###
+# Modify User By Id
+PUT {{ baseURL }}/users
+Content-Type: application/json
+
+{
+  email: "string;",
+  accesstoken: "string;",
+  age: 0,
+  createdat: "string;",
+  createdtime: "string;",
+  lastloginat: "string;",
+  lastsignintime: "string;",
+  name: "string;",
+  off_set: "string;",
+  timezone: "string;",
+  userindex: 0,
+  wallet: "string;",
+  description: "string;",
+  iskickoff: boolean;
+  ispaid: boolean;
+  userid: 0
+}
+
+###
+# Delete User By Id
+DELETE {{ baseURL }}/users/0

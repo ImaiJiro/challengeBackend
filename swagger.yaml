@@ -1,0 +1,238 @@
+tags:
+- name: users
+  description: users API
+- name: groups
+  description: groups API
+- name: reward
+  description: reward API
+
+paths:
+# [GET] users
+  /users:
+    get:
+      tags:
+      - users
+      summary: Find All Users
+      responses:
+        200:
+          description: 'OK'
+        500:
+          description: 'Server Error'
+
+# [POST] users
+    post:
+      tags:
+      - users
+      summary: Add User
+      parameters:
+      - name: body
+        in: body
+        description: user Data
+        required: true
+        schema:
+          $ref: '#/definitions/users'
+      responses:
+        201:
+          description: 'Created'
+        400:
+          description: 'Bad Request'
+        409:
+          description: 'Conflict'
+        500:
+          description: 'Server Error'
+
+# [GET] users/id
+  /users/{id}:
+    get:
+      tags:
+      - users
+      summary: Find User By Id
+      parameters:
+      - name: id
+        in: path
+        description: User Id
+        required: true
+        type: integer
+      responses:
+        200:
+          description: 'OK'
+        409:
+          description: 'Conflict'
+        500:
+          description: 'Server Error'
+
+# [PUT] users/id
+    put:
+      tags:
+      - users
+      summary: Update User By Id
+      parameters:
+      - name: id
+        in: path
+        description: user Id
+        required: true
+        type: integer
+      - name: body
+        in: body
+        description: user Data
+        required: true
+        schema:
+          $ref: '#/definitions/users'
+      responses:
+        200:
+          description: 'OK'
+        400:
+          description: 'Bad Request'
+        409:
+          description: 'Conflict'
+        500:
+          description: 'Server Error'
+
+# [DELETE] users/id
+    delete:
+      tags:
+      - users
+      summary: Delete User By Id
+      parameters:
+      - name: id
+        in: path
+        description: user Id
+        required: true
+        type: integer
+      responses:
+        200:
+          description: 'OK'
+        409:
+          description: 'Conflict'
+        500:
+          description: 'Server Error'
+
+
+# [GET] groups
+  /groups:
+    get:
+      tags:
+      - groups
+      summary: Find All Groups
+      responses:
+        200:
+          description: 'OK'
+        500:
+          description: 'Server Error'
+
+# [POST] groups
+    post:
+      tags:
+      - groups
+      summary: Add User
+      parameters:
+      - name: body
+        in: body
+        description: group Data
+        required: true
+        schema:
+          $ref: '#/definitions/groups'
+      responses:
+        201:
+          description: 'Created'
+        400:
+          description: 'Bad Request'
+        409:
+          description: 'Conflict'
+        500:
+          description: 'Server Error'
+# [PUT] groups``
+    put:
+      tags:
+      - groups
+      summary: Update Group By Id
+      parameters:
+      - name: body
+        in: body
+        description: Group Data
+        required: true
+        schema:
+          $ref: '#/definitions/groups'
+      responses:
+        200:
+          description: 'OK'
+        400:
+          description: 'Bad Request'
+        409:
+          description: 'Conflict'
+        500:
+          description: 'Server Error'
+          
+# [GET] groups/id
+  /groups/{id}:
+    get:
+      tags:
+      - groups
+      summary: Find Group By Id
+      parameters:
+      - name: id
+        in: path
+        description: Group Id
+        required: true
+        type: integer
+      responses:
+        200:
+          description: 'OK'
+        409:
+          description: 'Conflict'
+        500:
+          description: 'Server Error'
+
+# [DELETE] groups/id
+    delete:
+      tags:
+      - groups
+      summary: Delete Group By Id
+      parameters:
+      - name: id
+        in: path
+        description: Group Id
+        required: true
+        type: integer
+      responses:
+        200:
+          description: 'OK'
+        409:
+          description: 'Conflict'
+        500:
+          description: 'Server Error'
+
+# definitions
+definitions:
+  users:
+    type: object
+    required:
+        - email
+        - password
+    properties:
+      email:
+        type: string
+        description: user Email
+      password:
+        type: string
+        description: user Password
+  groups:
+    type: object
+    required:
+        - group_id
+        - group_name
+        - group_link
+    properties:
+      group_id:
+        type: integer
+        description: Group Id
+      group_name:
+        type: string
+        description: Group name
+      group_link:
+        type: string
+        description: Group link
+
+schemes:
+ - https
+ - http

@@ -1,0 +1,36 @@
+# baseURL
+@baseURL = http://localhost:3001
+
+###
+# Find All Groups
+GET {{ baseURL }}/groups
+
+###
+# Find Group By Id
+GET {{ baseURL }}/groups/0
+
+###
+# Create Group
+POST {{ baseURL }}/groups
+Content-Type: application/json
+
+{
+    "group_id": 0,
+	"group_name": "password",
+	"group_link": "password"
+}
+
+###
+# Modify Group By Id
+PUT {{ baseURL }}/groups
+Content-Type: application/json
+
+{
+    "group_id": 0,
+	"group_name": "password",
+	"group_link": "password"
+}
+
+###
+# Delete Group By Id
+DELETE {{ baseURL }}/groups/0
